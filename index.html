@@ -49,7 +49,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="p-2">
     <div id="block" class="d-flex border rounded p-5 mx-auto my-5">
       <div id="textArea" class="d-none">
         <h1 class="animated tada text-center">Dear Claudia,</h1>
@@ -57,11 +57,11 @@
           Happy Birthday!
         </h2>
         <p class="animated zoomIn delay-2s text-center">
-          May the joy and happiness around you today and always! wish all your
+          May the joy and happiness around you today and always! Wish all your
           dreams come true!
         </p>
         <p class="animated fadeIn delay-3s text-center">
-          sincerely,<br />Kai <br />
+          Sincerely,<br />Kai <br />
         </p>
         <p class="animated fadeIn delay-4s text-center">
           2020-01-06 (๑´ㅂ`๑)
@@ -94,7 +94,7 @@
       const block = document.getElementById("block");
 
       clickBtn.addEventListener("click", () => {
-        if (dayjs().isBefore(dayjs("2020-01-05"))) {
+        if (dayjs().isBefore(dayjs("2020-01-06"))) {
           alert(
             `Please wait for ${parseInt(
               dayjs("2020-01-06").diff(dayjs()) / 1000 / 60 / 60,
