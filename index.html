@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HB-Card</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap"
+      rel="stylesheet"
+    />
+    <!-- animation -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <style>
+      body {
+        font-family: "Baloo Bhai", cursive;
+        height: 100vh;
+        width: 100vw;
+        background: url("./images/bg.jpg") center center no-repeat;
+        background-size: cover;
+      }
+      #clickBtn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #block {
+        opacity: 0;
+        background: rgba(255, 255, 255, 0.6);
+        transition: 1s;
+        max-width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="block" class="d-flex border rounded p-5 mx-auto my-5">
+      <div id="textArea" class="d-none">
+        <h1 class="animated tada text-center">Dear Claudia,</h1>
+        <h2 class="animated rubberBand delay-1s text-center">
+          Happy Birthday!
+        </h2>
+        <p class="animated zoomIn delay-2s text-center">
+          May the joy and happiness around you today and always! wish all your
+          dreams come true!
+        </p>
+        <p class="animated fadeIn delay-3s text-center">
+          sincerely,<br />Kai <br />
+        </p>
+        <p class="animated fadeIn delay-4s text-center">
+          2020-01-06 (๑´ㅂ`๑)
+        </p>
+      </div>
+    </div>
+    <button id="clickBtn" type="button" class="btn btn-warning btn-lg">
+      Click me!
+    </button>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.17/dayjs.min.js"></script>
+    <script>
+      const clickBtn = document.getElementById("clickBtn");
+      const block = document.getElementById("block");
+
+      clickBtn.addEventListener("click", () => {
+        if (dayjs().isBefore(dayjs("2020-01-05"))) {
+          alert(
+            `Please wait for ${parseInt(
+              dayjs("2020-01-06").diff(dayjs()) / 1000 / 60 / 60,
+              10
+            )} hours ${parseInt(
+              dayjs("2020-01-06").diff(dayjs()) / 1000 / 60 -
+                parseInt(
+                  dayjs("2020-01-06").diff(dayjs()) / 1000 / 60 / 60,
+                  10
+                ) *
+                  60,
+              10
+            ) + 1} minutes`
+          );
+          return;
+        }
+        clickBtn.classList.add("d-none");
+        block.style.opacity = 1;
+        setTimeout(() => {
+          textArea.classList.toggle("d-none");
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
